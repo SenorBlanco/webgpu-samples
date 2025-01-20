@@ -1,6 +1,6 @@
 @group(0) @binding(0) var gBufferNormal: texture_2d<f32>;
 @group(0) @binding(1) var gBufferAlbedo: texture_2d<f32>;
-@group(0) @binding(2) var gBufferDepth: texture_depth_2d;
+@group(0) @binding(2) var gBufferDepth: texture_2d<f32>;
 
 override canvasSizeWidth: f32;
 override canvasSizeHeight: f32;
@@ -16,8 +16,8 @@ fn main(
       gBufferDepth,
       vec2i(floor(coord.xy)),
       0
-    );
-    // remap depth into something a bit more visible
+    ).x;
+    // ramap depth into something a bit more visible
     let depth = (1.0 - rawDepth) * 50.0;
     result = vec4(depth);
   } else if (c.x < 0.66667) {
