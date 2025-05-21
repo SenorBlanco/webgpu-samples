@@ -316,6 +316,8 @@ const gBufferTextureViews = [
   depthTexture.createView(),
 ];
 
+// Vertex layout
+
 const vertexBuffers: Iterable<GPUVertexBufferLayout> = [
   {
     arrayStride: Float32Array.BYTES_PER_ELEMENT * 8,
@@ -428,6 +430,7 @@ const lightsBufferBindGroupLayout = device.createBindGroupLayout({
 });
 
 // Create GBuffersDebugView RenderPipeline
+
 const gBuffersDebugViewPipeline = device.createRenderPipeline({
   layout: device.createPipelineLayout({
     bindGroupLayouts: [gBufferTexturesBindGroupLayout],
@@ -455,6 +458,7 @@ const gBuffersDebugViewPipeline = device.createRenderPipeline({
 });
 
 // Create DeferredRender RenderPipeline
+
 const deferredRenderPipeline = device.createRenderPipeline({
   layout: device.createPipelineLayout({
     bindGroupLayouts: [
