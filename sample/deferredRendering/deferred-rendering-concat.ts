@@ -316,7 +316,7 @@ const gBufferTextureViews = [
   depthTexture.createView(),
 ];
 
-// Vertex layout
+// VertexBufferLayout
 
 const vertexBuffers: Iterable<GPUVertexBufferLayout> = [
   {
@@ -377,6 +377,8 @@ const writeGBuffersPipeline = device.createRenderPipeline({
   primitive,
 });
 
+// BufferTextures BindGroupLayout
+
 const gBufferTexturesBindGroupLayout = device.createBindGroupLayout({
   entries: [
     {
@@ -402,6 +404,8 @@ const gBufferTexturesBindGroupLayout = device.createBindGroupLayout({
     },
   ],
 });
+
+// LightBuffers BindGroupLayout
 
 const lightsBufferBindGroupLayout = device.createBindGroupLayout({
   entries: [
